@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "eab630fa-4c25-4fb9-9284-152e14273e85",
+		"name": "AWS - 202201 - ATV02",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Instagram",
+			"item": [
+				{
+					"name": "GET USUARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://graph.instagram.com/v12.0/me?fields=id,username&access_token={{accessTokenInstagram}}",
+							"protocol": "https",
+							"host": [
+								"graph",
+								"instagram",
+								"com"
+							],
+							"path": [
+								"v12.0",
+								"me"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "id,username"
+								},
+								{
+									"key": "access_token",
+									"value": "{{accessTokenInstagram}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET MEDIA POR USUARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://graph.instagram.com/v12.0/7839761076049873/media?access_token={{accessTokenInstagram}}",
+							"protocol": "https",
+							"host": [
+								"graph",
+								"instagram",
+								"com"
+							],
+							"path": [
+								"v12.0",
+								"7839761076049873",
+								"media"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{accessTokenInstagram}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET DETALHES DE MIDIA",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://graph.instagram.com/v12.0/17868796240793317?fields=id,media_type,media_url,username,timestamp&access_token={{accessTokenInstagram}}",
+							"protocol": "https",
+							"host": [
+								"graph",
+								"instagram",
+								"com"
+							],
+							"path": [
+								"v12.0",
+								"17868796240793317"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "id,media_type,media_url,username,timestamp"
+								},
+								{
+									"key": "access_token",
+									"value": "{{accessTokenInstagram}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Github",
+			"item": [
+				{
+					"name": "GET USUARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/users/jomapiju",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"users",
+								"jomapiju"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET REPOSITORIOS POR USUARIO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/users/jomapiju/repos",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"users",
+								"jomapiju",
+								"repos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET REPOSITORIO POR NOME",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/repos/jomapiju/AWS-202201-ATV01",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"repos",
+								"jomapiju",
+								"AWS-202201-ATV01"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ifood",
+			"item": [
+				{
+					"name": "Autorização",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"\", ()=>{\r",
+									"    pm.environment.set('tokenIfood', pm.response.json().accessToken);\r",
+									"    console.log(pm.environment.toJSON());\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth1",
+							"oauth1": [
+								{
+									"key": "addParamsToHeader",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "signatureMethod",
+									"value": "HMAC-SHA1",
+									"type": "string"
+								},
+								{
+									"key": "version",
+									"value": "1.0",
+									"type": "string"
+								},
+								{
+									"key": "addEmptyParamsToSign",
+									"value": false,
+									"type": "boolean"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grantType",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "clientId",
+									"value": "{{clientIdIfood}}",
+									"type": "text"
+								},
+								{
+									"key": "clientSecret",
+									"value": "{{clientSecretIfood}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://merchant-api.ifood.com.br/authentication/v1.0/oauth/token",
+							"protocol": "https",
+							"host": [
+								"merchant-api",
+								"ifood",
+								"com",
+								"br"
+							],
+							"path": [
+								"authentication",
+								"v1.0",
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET COMERCIANTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenIfood}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://merchant-api.ifood.com.br/merchant/v1.0/merchants",
+							"protocol": "https",
+							"host": [
+								"merchant-api",
+								"ifood",
+								"com",
+								"br"
+							],
+							"path": [
+								"merchant",
+								"v1.0",
+								"merchants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET COMERCIANTE DETALHES",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenIfood}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://merchant-api.ifood.com.br/merchant/v1.0/merchants/7d56c81e-eb72-479e-bb06-d5d3f7dce016",
+							"protocol": "https",
+							"host": [
+								"merchant-api",
+								"ifood",
+								"com",
+								"br"
+							],
+							"path": [
+								"merchant",
+								"v1.0",
+								"merchants",
+								"7d56c81e-eb72-479e-bb06-d5d3f7dce016"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET CARDAPIO",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{tokenIfood}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://merchant-api.ifood.com.br/catalog/v1.0/merchants/7d56c81e-eb72-479e-bb06-d5d3f7dce016/catalogs",
+							"protocol": "https",
+							"host": [
+								"merchant-api",
+								"ifood",
+								"com",
+								"br"
+							],
+							"path": [
+								"catalog",
+								"v1.0",
+								"merchants",
+								"7d56c81e-eb72-479e-bb06-d5d3f7dce016",
+								"catalogs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

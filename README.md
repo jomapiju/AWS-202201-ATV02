@@ -1,16 +1,29 @@
 # AWS-202201-ATV02
 
 ## Ferramenta:
-### Postaman
+### Postman
 
 ## Provedores
 ### Github
+#GET USUARIO
 ![Alt text](./img/GITHUB01.png "GET USUARIO")
+#GET REPOSITORIOS POR USUARIO
 ![Alt text](./img/GITHUB02.png "GET REPOSITORIOS POR USUARIO")
+#GET REPOSITORIO POR NOME
 ![Alt text](./img/GITHUB03.png "GET REPOSITORIO POR NOME")
 ### Ifood
+#AUTORIZACAO
+![Alt text](./img/IFOOD00.png "AUTORIZACAO")
+#GET COMERCIANTE
 ![Alt text](./img/IFOOD01.png "GET COMERCIANTE")
+#GET COMERCIANTE DETALHES
 ![Alt text](./img/IFOOD02.png "GET COMERCIANTE DETALHES")
+#GET CARDAPIO
 ![Alt text](./img/IFOOD03.png "GET CARDAPIO")
-### Twitter
-
+### Instagram
+#GET USUARIO
+![Alt text](./img/IG01.png "GET USUARIO")
+#GET MEDIA POR USUARIO
+![Alt text](./img/IG02.png "GET MEDIA POR USUARIO")
+#GET DETALHES DE MIDIA
+![Alt text](./img/IG03.png "GET DETALHES DE MIDIA")
